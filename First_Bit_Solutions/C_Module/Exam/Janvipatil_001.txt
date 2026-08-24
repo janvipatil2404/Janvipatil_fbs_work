@@ -1,0 +1,99 @@
+Name:- Janvi Uday Patil
+Frn:- 14J0626/001
+SET- B
+
+
+Question-1
+#include<stdio.h>
+void main()
+{	
+    char str[50];
+    int count=0;
+
+    printf("Enter your string: ");
+    gets(str);
+
+    for(int i=0;str[i]!='\0';i++)
+    {
+        if(str[i]!=' '&&(i==0||str[i-1]==' '))
+            count++;
+    }
+    printf("Number of words = %d", count);
+}
+
+-------------------------------------------
+Question- 2
+#include<stdio.h>
+void main()
+{
+	int n;
+	int temp=0;
+	printf("Enter your number to print 1: ");
+	scanf("%d", &n);
+	for(int i=0;i<n;i++)
+	{
+		temp=temp*10+1;
+		printf("%d", temp);
+			if(i<n-1)
+				printf(" + ");
+	}
+	
+}
+-------------------------------------------
+Question-3
+
+#include <stdio.h>
+typedef struct song
+{
+    int id;
+    char title[50];
+    char artist[50];
+    float duration;
+} song;
+
+void addSong(song *s, int *n)
+{
+    printf("\nEnter Song ID: ");
+    scanf("%d", &s[*n].id);
+
+    printf("Enter Song Title: ");
+    scanf(" %[^\n]", s[*n].title);
+
+    printf("Enter Artist Name: ");
+    scanf(" %[^\n]", s[*n].artist);
+
+    printf("Enter Duration in minutes: ");
+    scanf("%f", &s[*n].duration);
+
+    (*n)++;
+
+    }
+void main()
+{
+    song s[100];
+    int n = 0;
+    int choice;
+
+    while(1)
+    {
+        printf("\n\n--- Music Library ---\n");
+        printf("1. Add Song\n");
+        printf("2. Display Songs\n");
+        printf("0. Exit\n");
+
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        if(choice==1)
+            addSong(s, &n);
+        else if(choice==2)
+            displaySongs(s, n);
+        else if(choice==0)
+        {
+            printf("\nProgram ended.\n");
+            break;
+        }
+        else
+            printf("\nInvalid choice.\n");
+    }
+}
